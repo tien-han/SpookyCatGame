@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dexjnwxb5r6uc"]
+[gd_scene load_steps=5 format=3 uid="uid://dexjnwxb5r6uc"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_qs603"]
 [ext_resource type="Texture2D" uid="uid://bo5w3qxjpitl6" path="res://RawAssets/Character/Front/H0ndred_Front Idle_1.png" id="2_tivtx"]
@@ -7,14 +7,27 @@
 radius = 5.0
 height = 10.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hx6m8"]
+radius = 15.0
+
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(62, 46)
+position = Vector2(66, 56)
 motion_mode = 1
 script = ExtResource("1_qs603")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_i0h4q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_tivtx")
+
+[node name="Interactor" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor"]
+shape = SubResource("CapsuleShape2D_hx6m8")
+
+[connection signal="area_entered" from="Interactor" to="." method="_on_interactor_area_entered"]
+[connection signal="area_exited" from="Interactor" to="." method="_on_interactor_area_exited"]
