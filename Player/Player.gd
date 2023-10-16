@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal interacted_with(interactable : Interactable)
+
 const SPEED = 50.0
 var interactables = []
 var closest_interactable
@@ -39,6 +41,7 @@ func _input(event):
 		
 func interact():
 	print(closest_interactable.name)
+	emit_signal("interacted_with", closest_interactable)
 
 func update_closest():
 	if interactables.size() == 0:
