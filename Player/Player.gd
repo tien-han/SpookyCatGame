@@ -28,11 +28,11 @@ func _physics_process(delta):
 func _on_interactor_area_entered(area):
     if area is Interactable:
         interactables.append(area)
-        area.can_interact()
 
 func _on_interactor_area_exited(area):
-    interactables.erase(area)
-    area.stop_interact()
+    if area is Interactable:
+        interactables.erase(area)
+        area.stop_interact()
 
 func _input(event):
     if event.is_action_pressed("interact_key"):
@@ -40,24 +40,22 @@ func _input(event):
             interact()
 
 func interact():
-    print(closest_interactable.name)
     emit_signal("interacted_with", closest_interactable)
+
+func sort_by_distance(a, b):
+    var a_dist = position.distance_to(a.global_position)
+    var b_dist = position.distance_to(b.global_position)
+    return a_dist < b_dist
 
 func update_closest():
     if interactables.size() == 0:
         return
 
-    if interactables.size() == 1:
-        closest_interactable = interactables[0]
-        return
+    interactables.sort_custom(sort_by_distance)
 
-    var closest_node = interactables[0]
-    var dist_to_closest = position.distance_to(closest_node.global_position)
-    for node in interactables:
-        var distance = position.distance_to(node.global_position)
-        if distance < dist_to_closest:
-            closest_node = node
-    if closest_node != closest_interactable:
-        closest_node.can_interact()
-        closest_interactable.stop_interact()
-        closest_interactable = closest_node
+    closest_interactable = interactables[0]
+    interactables[0].can_interact()
+
+    var not_closest = interactables.slice(1)
+    for interactable in not_closest:
+        interactable.stop_interact()
