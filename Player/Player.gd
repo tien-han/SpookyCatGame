@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 50.0
-var interactable = []
+var interactables = []
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -22,17 +22,23 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_interactor_area_entered(area):	
-	interactable.append(area.get_parent())
+	interactables.append(area.get_parent())
 
 func _on_interactor_area_exited(area):
-	interactable.clear()
+	interactables.clear()
 	
 func _input(event):
 	#TO-DO cover case where player has no interactables but presses e
 	if event.is_action_pressed("interact_key"):
 		print("Interact key was pressed")
-		interact_with_object(interactable[0])
+		interact()
 		
-func interact_with_object(interactable_object):
-	print(interactable_object.name)
+func interact():
+	var closest_node = interactables[0]
+	var dist_to_closest = position.distance_to(closest_node.global_position)
+	for node in interactables:
+		var distance = position.distance_to(node.global_position)
+		if distance < dist_to_closest:
+			closest_node = node
+	print(closest_node.name)
 		

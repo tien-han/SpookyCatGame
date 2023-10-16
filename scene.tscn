@@ -1303,12 +1303,14 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65540, 983040, 3, 65541, 983040, 3, 3, 851968, 3, 4, 851968, 3, 5, 851968, 3, 6, 917504, 3, 2, 786432, 3, 65538, 786432, 4, 196610, 786432, 5, 196614, 917504, 5, 196611, 851968, 5, 196612, 851968, 5, 262146, 851968, 3, 262147, 851968, 3, 262148, 917504, 3, 327684, 917504, 4, 262150, 786432, 3, 327686, 786432, 4, 65542, 917504, 4)
 
 [node name="Player" parent="." instance=ExtResource("3_ekd51")]
+position = Vector2(89, 48)
 
 [node name="Bedroom" type="Node2D" parent="."]
 position = Vector2(96, 45)
 
 [node name="Bed" type="Node2D" parent="Bedroom"]
-position = Vector2(66, 108)
+position = Vector2(-7, 86)
+metadata/_edit_group_ = true
 
 [node name="HotPinkBedFront" type="Sprite2D" parent="Bedroom/Bed"]
 texture = ExtResource("4_1onyy")
@@ -1319,7 +1321,8 @@ texture = ExtResource("4_1onyy")
 visible = true
 
 [node name="Cat" type="Node2D" parent="."]
-position = Vector2(62, 120)
+position = Vector2(66, 131)
+metadata/_edit_group_ = true
 
 [node name="CatSprite1" type="Sprite2D" parent="Cat"]
 position = Vector2(-3, 0)
