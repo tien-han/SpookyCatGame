@@ -8,9 +8,9 @@ class_name Interactable
 @export var interactable_type = "Bed"
 
 func can_interact():
-	$InteractKey.visible = true
-	
+    $InteractKey.visible = true
+
 func stop_interact():
-	$InteractKey.visible = false
+    $InteractKey.visible = false
 
 
