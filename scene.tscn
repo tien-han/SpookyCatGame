@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc7nbi854sxhi"]
+[gd_scene load_steps=15 format=3 uid="uid://bc7nbi854sxhi"]
 
 [ext_resource type="Texture2D" uid="uid://cy13q3wewoykb" path="res://RawAssets/Tiles.png" id="1_02f74"]
 [ext_resource type="Script" path="res://Game/scene.gd" id="1_7akwa"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b7w0qmqho8xrj" path="res://Props/interactable.tscn" id="6_jtcx8"]
 [ext_resource type="Texture2D" uid="uid://6hbn8fn3x7dt" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 1/Original size/Cat Sprite 1.png" id="7_glf3x"]
 [ext_resource type="Script" path="res://Game/DialogueBox.gd" id="9_kyrvf"]
+[ext_resource type="Script" path="res://QuestBox.gd" id="10_u2xph"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lvby"]
 texture = ExtResource("1_02f74")
@@ -1373,6 +1374,18 @@ one_shot = true
 [node name="Dialogue" type="RichTextLabel" parent="Canvas/DialogueBox"]
 layout_mode = 2
 text = "HELLO"
+
+[node name="QuestBox" type="PanelContainer" parent="Canvas"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 89.0
+offset_right = 316.0
+offset_bottom = 117.0
+script = ExtResource("10_u2xph")
+
+[node name="Dialogue" type="RichTextLabel" parent="Canvas/QuestBox"]
+layout_mode = 2
+fit_content = true
 
 [connection signal="interacted_with" from="Player" to="." method="_on_player_interacted_with"]
 [connection signal="timeout" from="Canvas/DialogueBox/Timer" to="Canvas/DialogueBox" method="_on_timer_timeout"]
