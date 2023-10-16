@@ -25,13 +25,12 @@ func _on_interactor_area_entered(area):
 	interactables.append(area.get_parent())
 
 func _on_interactor_area_exited(area):
-	interactables.clear()
+	interactables.erase(area.get_parent())
 	
 func _input(event):
-	#TO-DO cover case where player has no interactables but presses e
 	if event.is_action_pressed("interact_key"):
-		print("Interact key was pressed")
-		interact()
+		if interactables.size() > 0:
+			interact()
 		
 func interact():
 	var closest_node = interactables[0]
