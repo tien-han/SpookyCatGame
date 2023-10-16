@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 50.0
 var interactables = []
+var closest_interactable
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -20,12 +21,16 @@ func _physics_process(delta):
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	move_and_slide()
+	update_closest()
 
-func _on_interactor_area_entered(area):	
-	interactables.append(area.get_parent())
+func _on_interactor_area_entered(area):
+	if area is Interactable:
+		interactables.append(area)
+		area.can_interact()
 
 func _on_interactor_area_exited(area):
-	interactables.erase(area.get_parent())
+	interactables.erase(area)
+	area.stop_interact()
 	
 func _input(event):
 	if event.is_action_pressed("interact_key"):
@@ -33,11 +38,24 @@ func _input(event):
 			interact()
 		
 func interact():
+	print(closest_interactable.name)
+
+func update_closest():
+	if interactables.size() == 0:
+		return
+	
+	if interactables.size() == 1:
+		closest_interactable = interactables[0]
+		return
+
 	var closest_node = interactables[0]
 	var dist_to_closest = position.distance_to(closest_node.global_position)
 	for node in interactables:
 		var distance = position.distance_to(node.global_position)
 		if distance < dist_to_closest:
 			closest_node = node
-	print(closest_node.name)
-		
+	if closest_node != closest_interactable:
+		closest_node.can_interact()
+		closest_interactable.stop_interact()
+		closest_interactable = closest_node
+

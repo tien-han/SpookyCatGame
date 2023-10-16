@@ -1318,10 +1318,13 @@ texture = ExtResource("4_1onyy")
 [node name="Boundary" parent="Bedroom/Bed" instance=ExtResource("5_886j5")]
 
 [node name="Interactable" parent="Bedroom/Bed" instance=ExtResource("6_jtcx8")]
-visible = true
+
+[node name="InteractKey" parent="Bedroom/Bed/Interactable" index="1"]
+position = Vector2(1, -17)
+scale = Vector2(0.59375, 0.5625)
 
 [node name="Cat" type="Node2D" parent="."]
-position = Vector2(66, 131)
+position = Vector2(64, 133)
 metadata/_edit_group_ = true
 
 [node name="CatSprite1" type="Sprite2D" parent="Cat"]
@@ -1335,11 +1338,15 @@ position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_ishks")
 
 [node name="Interactable" parent="Cat" instance=ExtResource("6_jtcx8")]
-visible = true
 dialogue = "Meow Wooorld"
 
 [node name="CollisionShape2D" parent="Cat/Interactable" index="0"]
 position = Vector2(-2, 0)
 
+[node name="InteractKey" parent="Cat/Interactable" index="1"]
+position = Vector2(-2, -12)
+scale = Vector2(0.5, 0.5625)
+
+[editable path="Bedroom/Bed/Interactable"]
 [editable path="Cat/Boundary"]
 [editable path="Cat/Interactable"]

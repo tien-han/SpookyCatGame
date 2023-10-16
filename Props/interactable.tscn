@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7w0qmqho8xrj"]
+[gd_scene load_steps=4 format=3 uid="uid://b7w0qmqho8xrj"]
 
 [ext_resource type="Script" path="res://Props/Interactable.gd" id="1_a6nda"]
+[ext_resource type="Texture2D" uid="uid://7lvaq3l28yxs" path="res://RawAssets/UI Icons/tile_0087.png" id="2_feok4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5swgi"]
 radius = 15.0
 height = 42.0
 
 [node name="Interactable" type="Area2D"]
-visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_a6nda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5swgi")
+
+[node name="InteractKey" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_feok4")
