@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc7nbi854sxhi"]
+[gd_scene load_steps=13 format=3 uid="uid://bc7nbi854sxhi"]
 
 [ext_resource type="Texture2D" uid="uid://cy13q3wewoykb" path="res://RawAssets/Tiles.png" id="1_02f74"]
 [ext_resource type="Script" path="res://Game/scene.gd" id="1_7akwa"]
 [ext_resource type="Texture2D" uid="uid://b1dgjj2x08pn6" path="res://RawAssets/All Assets.png" id="2_va2l0"]
 [ext_resource type="PackedScene" uid="uid://dexjnwxb5r6uc" path="res://Player/Player.tscn" id="3_ekd51"]
-[ext_resource type="PackedScene" uid="uid://gkdnxm737byx" path="res://Props/Bed.tscn" id="5_3ly7e"]
-[ext_resource type="PackedScene" uid="uid://c6cb4tv50vjuv" path="res://Props/Cat.tscn" id="6_1owbx"]
+[ext_resource type="PackedScene" uid="uid://jplbbndfnx41" path="res://Props/Bed.tscn" id="5_3ly7e"]
+[ext_resource type="PackedScene" uid="uid://bx30cdh57ss6f" path="res://Props/Cat.tscn" id="6_1owbx"]
+[ext_resource type="PackedScene" uid="uid://ii7pjbsg2rl3" path="res://Props/Dish.tscn" id="9_k1s4l"]
 [ext_resource type="Script" path="res://Game/DialogueBox.gd" id="9_kyrvf"]
 [ext_resource type="Script" path="res://QuestBox.gd" id="10_u2xph"]
 
@@ -1349,6 +1350,9 @@ position = Vector2(-18, 72)
 
 [node name="Cat" parent="." instance=ExtResource("6_1owbx")]
 position = Vector2(55, 117)
+
+[node name="Dish" parent="." instance=ExtResource("9_k1s4l")]
+position = Vector2(44, 43)
 
 [connection signal="timeout" from="Canvas/DialogueBox/VisibilityTimer" to="Canvas/DialogueBox" method="_on_timer_timeout"]
 [connection signal="timeout" from="Canvas/DialogueBox/PrintingTimer" to="Canvas/DialogueBox" method="_on_printing_timer_timeout"]

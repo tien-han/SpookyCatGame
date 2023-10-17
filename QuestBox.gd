@@ -9,8 +9,8 @@ func _ready():
     $Dialogue.text = "%s: %s/%s %s" % [quest_text, current_dishes, total_dishes, quest_condition_text]
 
 func update_quest_item(interactable):
-    # If this type of interactable do these actions
-    #increment item current_dishes
-    current_dishes += 1
-
-    $Dialogue.text = "%s: %s/%s %s" % [quest_text, current_dishes, total_dishes, quest_condition_text]
+    #Handle quest notice for interacting with dishes
+    if interactable.interactable_type == Interactable.InteractableType.DISH:
+        if current_dishes < total_dishes:
+            current_dishes += 1
+        $Dialogue.text = "%s: %s/%s %s" % [quest_text, current_dishes, total_dishes, quest_condition_text]
