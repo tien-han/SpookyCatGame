@@ -1306,13 +1306,15 @@ offset_right = 319.0
 offset_bottom = 178.0
 script = ExtResource("9_kyrvf")
 
-[node name="Timer" type="Timer" parent="Canvas/DialogueBox"]
+[node name="VisibilityTimer" type="Timer" parent="Canvas/DialogueBox"]
 wait_time = 5.0
 one_shot = true
 
 [node name="Dialogue" type="RichTextLabel" parent="Canvas/DialogueBox"]
 layout_mode = 2
-text = "HELLO"
+
+[node name="PrintingTimer" type="Timer" parent="Canvas/DialogueBox"]
+wait_time = 0.05
 
 [node name="QuestBox" type="PanelContainer" parent="Canvas"]
 layout_mode = 0
@@ -1348,5 +1350,6 @@ position = Vector2(-18, 72)
 [node name="Cat" parent="." instance=ExtResource("6_1owbx")]
 position = Vector2(55, 117)
 
-[connection signal="timeout" from="Canvas/DialogueBox/Timer" to="Canvas/DialogueBox" method="_on_timer_timeout"]
+[connection signal="timeout" from="Canvas/DialogueBox/VisibilityTimer" to="Canvas/DialogueBox" method="_on_timer_timeout"]
+[connection signal="timeout" from="Canvas/DialogueBox/PrintingTimer" to="Canvas/DialogueBox" method="_on_printing_timer_timeout"]
 [connection signal="interacted_with" from="Player" to="." method="_on_player_interacted_with"]

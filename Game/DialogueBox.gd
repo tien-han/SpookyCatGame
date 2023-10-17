@@ -1,9 +1,25 @@
 extends PanelContainer
 
+var text_to_print = ""
+var text_index = 0
+var text_printed = ""
+
 func print_dialogue(dialogue):
-    $Dialogue.text = dialogue
+    text_to_print = dialogue
+    text_printed = text_to_print[0]
+    text_index = 1
     self.visible = true
-    $Timer.start()
+    $VisibilityTimer.start()
+    $PrintingTimer.start()
 
 func _on_timer_timeout():
     self.visible = false
+    $Dialogue.text = ""
+
+func _on_printing_timer_timeout():
+    if text_to_print == text_printed:
+        $PrintingTimer.stop()
+    else:
+        text_printed += text_to_print[text_index]
+        text_index += 1
+        $Dialogue.text = text_printed
