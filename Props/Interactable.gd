@@ -2,8 +2,9 @@ extends Area2D
 
 class_name Interactable
 
-@export var dialogue: String = "Heyyyy I got touched"
-@export var interactable_type = "Bed"
+@export var dialogue: String = ""
+@export var interactable_type = ""
+@export var is_hiding_spot = false
 var is_interacted = false
 
 func _ready():
@@ -26,5 +27,3 @@ func stop_interact():
         is_interacted = false
         create_tween().tween_property($InteractKey, "modulate:a", 0, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
         create_tween().tween_property($InteractKey, "position", $InteractKeyStartPos.position, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
-

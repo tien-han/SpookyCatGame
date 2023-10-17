@@ -12,6 +12,8 @@ texture = ExtResource("1_wft0h")
 [node name="Boundary" parent="." instance=ExtResource("2_a8hxb")]
 
 [node name="Interactable" parent="." instance=ExtResource("3_evoba")]
+dialogue = "Heyyyyy I got touched"
+is_hiding_spot = true
 
 [node name="InteractKey" parent="Interactable" index="1"]
 scale = Vector2(0.59375, 0.5625)

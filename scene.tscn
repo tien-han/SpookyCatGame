@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc7nbi854sxhi"]
+[gd_scene load_steps=14 format=3 uid="uid://bc7nbi854sxhi"]
 
 [ext_resource type="Texture2D" uid="uid://cy13q3wewoykb" path="res://RawAssets/Tiles.png" id="1_02f74"]
 [ext_resource type="Script" path="res://Game/scene.gd" id="1_7akwa"]
+[ext_resource type="Script" path="res://Game/HidingSystem.gd" id="2_melcq"]
 [ext_resource type="Texture2D" uid="uid://b1dgjj2x08pn6" path="res://RawAssets/All Assets.png" id="2_va2l0"]
 [ext_resource type="PackedScene" uid="uid://dexjnwxb5r6uc" path="res://Player/Player.tscn" id="3_ekd51"]
 [ext_resource type="PackedScene" uid="uid://gkdnxm737byx" path="res://Props/Bed.tscn" id="5_3ly7e"]
 [ext_resource type="PackedScene" uid="uid://c6cb4tv50vjuv" path="res://Props/Cat.tscn" id="6_1owbx"]
+[ext_resource type="PackedScene" uid="uid://8nicpnt317io" path="res://Props/DuffleBag.tscn" id="9_7kej2"]
 [ext_resource type="Script" path="res://Game/DialogueBox.gd" id="9_kyrvf"]
 [ext_resource type="Script" path="res://QuestBox.gd" id="10_u2xph"]
 
@@ -1290,6 +1292,9 @@ sources/2 = SubResource("TileSetAtlasSource_gxans")
 [node name="RootNode" type="Node2D"]
 script = ExtResource("1_7akwa")
 
+[node name="HidingSystem" type="Node2D" parent="."]
+script = ExtResource("2_melcq")
+
 [node name="Canvas" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -1345,10 +1350,13 @@ position = Vector2(89, 48)
 position = Vector2(96, 45)
 
 [node name="Bed" parent="Bedroom" instance=ExtResource("5_3ly7e")]
-position = Vector2(-18, 72)
+position = Vector2(-44, 74)
 
 [node name="Cat" parent="." instance=ExtResource("6_1owbx")]
-position = Vector2(55, 117)
+position = Vector2(222, 52)
+
+[node name="DuffleBag" parent="." instance=ExtResource("9_7kej2")]
+position = Vector2(49, 34)
 
 [connection signal="timeout" from="Canvas/DialogueBox/VisibilityTimer" to="Canvas/DialogueBox" method="_on_timer_timeout"]
 [connection signal="timeout" from="Canvas/DialogueBox/PrintingTimer" to="Canvas/DialogueBox" method="_on_printing_timer_timeout"]
