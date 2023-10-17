@@ -40,6 +40,7 @@ func _input(event):
             interact()
 
 func interact():
+    closest_interactable.interacted()
     emit_signal("interacted_with", closest_interactable)
 
 func sort_by_distance(a, b):
