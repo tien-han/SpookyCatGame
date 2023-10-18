@@ -7,7 +7,10 @@ class_name Interactable
 @export var is_hiding_spot = false
 var is_interacted = false
 
+signal print_dialogue
+
 func _ready():
+    sb.add_emitter("print_dialogue", self)
     $InteractKey.modulate.a = 0
 
 func can_interact():
@@ -18,6 +21,7 @@ func can_interact():
 
 func interacted():
     if is_interacted == true:
+        emit_signal("print_dialogue", self.dialogue)
         var orig_scale = $InteractKey.scale
         create_tween().tween_property($InteractKey, "scale", orig_scale * 1.2, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
         create_tween().tween_property($InteractKey, "scale", orig_scale, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT).set_delay(0.15)

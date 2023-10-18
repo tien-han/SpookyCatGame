@@ -4,7 +4,10 @@ var text_to_print = ""
 var text_index = 0
 var text_printed = ""
 
-func print_dialogue(dialogue):
+func _ready():
+    sb.add_listener("print_dialogue", self, "on_print_dialogue")
+
+func on_print_dialogue(dialogue):
     text_to_print = dialogue
     text_printed = text_to_print[0]
     text_index = 1

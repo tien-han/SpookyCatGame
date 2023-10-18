@@ -41,7 +41,6 @@ func _input(event):
 
 func interact():
     closest_interactable.interacted()
-    emit_signal("interacted_with", closest_interactable)
 
 func sort_by_distance(a, b):
     var a_dist = position.distance_to(a.global_position)
