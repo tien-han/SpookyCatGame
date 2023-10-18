@@ -40,4 +40,4 @@ func stop_interact():
         create_tween().tween_property($InteractKey, "position", $InteractKeyStartPos.position, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 func update_dishes():
-    $InteractKey.get_parent().get_parent().queue_free();
+    $InteractKey.get_parent().get_parent().queue_free()

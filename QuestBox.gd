@@ -16,6 +16,8 @@ func update_quest_item(interactable):
     var is_dish_type = interactable.interactable_type == Interactable.InteractableType.DISH
     var is_bed_type = interactable.interactable_type == Interactable.InteractableType.BED
 
+    $Dialogue.text = quest_text
+
     #Handle quest notice for interacting with dishes
     if quest_text == "Do dishes" && is_dish_type:
         if current_dishes < total_dishes:
@@ -24,10 +26,10 @@ func update_quest_item(interactable):
             if current_dishes == total_dishes:
                 questNum += 1
                 quest_text = quest_list[questNum]
-                $Dialogue.text = quest_text
+                $Dialogue.text = "Next: " + quest_text
                 is_dish_type = false
     #Handle quest notice for interacting with beds
     elif quest_text == "Make bed" && is_bed_type:
         questNum += 1
         quest_text = quest_list[questNum]
-        $Dialogue.text = "Bed has been made! \n Next quest: %s" % [quest_text]
+        $Dialogue.text = "Bed has been made!\nNext: %s" % [quest_text]
