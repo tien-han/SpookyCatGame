@@ -31,10 +31,13 @@ func interacted():
 
         #If we interact with a dish, we'll remove it from the scene
         if interactable_type == InteractableType.DISH:
-            $InteractKey.get_parent().get_parent().queue_free();
+            update_dishes()
 
 func stop_interact():
     if is_interacted == true:
         is_interacted = false
         create_tween().tween_property($InteractKey, "modulate:a", 0, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
         create_tween().tween_property($InteractKey, "position", $InteractKeyStartPos.position, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+func update_dishes():
+    $InteractKey.get_parent().get_parent().queue_free();

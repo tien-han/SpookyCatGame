@@ -22,6 +22,7 @@ shape = SubResource("CapsuleShape2D_ishks")
 
 [node name="Interactable" parent="." instance=ExtResource("3_g8nhw")]
 dialogue = "Meow Wooorld"
+interactable_type = 1
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(-2, 0)
