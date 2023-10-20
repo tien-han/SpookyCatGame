@@ -1,15 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc7nbi854sxhi"]
+[gd_scene load_steps=16 format=3 uid="uid://bc7nbi854sxhi"]
 
 [ext_resource type="Texture2D" uid="uid://cy13q3wewoykb" path="res://RawAssets/Tiles.png" id="1_02f74"]
 [ext_resource type="Script" path="res://Game/scene.gd" id="1_7akwa"]
 [ext_resource type="Script" path="res://Game/HidingSystem.gd" id="2_melcq"]
 [ext_resource type="Texture2D" uid="uid://b1dgjj2x08pn6" path="res://RawAssets/All Assets.png" id="2_va2l0"]
 [ext_resource type="PackedScene" uid="uid://dexjnwxb5r6uc" path="res://Player/Player.tscn" id="3_ekd51"]
+[ext_resource type="Texture2D" uid="uid://civ5m707i1r6u" path="res://RawAssets/UI Icons/tile_0134.png" id="4_sdeuc"]
 [ext_resource type="PackedScene" uid="uid://gkdnxm737byx" path="res://Props/Bed.tscn" id="5_3ly7e"]
 [ext_resource type="PackedScene" uid="uid://c6cb4tv50vjuv" path="res://Props/Cat.tscn" id="6_1owbx"]
 [ext_resource type="PackedScene" uid="uid://8nicpnt317io" path="res://Props/DuffleBag.tscn" id="9_7kej2"]
 [ext_resource type="Script" path="res://Game/DialogueBox.gd" id="9_kyrvf"]
 [ext_resource type="Script" path="res://QuestBox.gd" id="10_u2xph"]
+
+[sub_resource type="Theme" id="Theme_h3b7e"]
+default_font_size = 8
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lvby"]
 texture = ExtResource("1_02f74")
@@ -1311,15 +1315,22 @@ offset_right = 319.0
 offset_bottom = 178.0
 script = ExtResource("9_kyrvf")
 
-[node name="VisibilityTimer" type="Timer" parent="Canvas/DialogueBox"]
-wait_time = 5.0
-one_shot = true
-
 [node name="Dialogue" type="RichTextLabel" parent="Canvas/DialogueBox"]
 layout_mode = 2
+theme = SubResource("Theme_h3b7e")
+
+[node name="VisibilityTimer" type="Timer" parent="Canvas/DialogueBox"]
+wait_time = 2.5
+one_shot = true
 
 [node name="PrintingTimer" type="Timer" parent="Canvas/DialogueBox"]
 wait_time = 0.05
+
+[node name="QueueIndicator" type="Sprite2D" parent="Canvas/DialogueBox"]
+visible = false
+position = Vector2(171, 49)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("4_sdeuc")
 
 [node name="QuestBox" type="PanelContainer" parent="Canvas"]
 layout_mode = 0
