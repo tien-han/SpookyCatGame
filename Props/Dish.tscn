@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ii7pjbsg2rl3"]
+
+[ext_resource type="Texture2D" uid="uid://dp3tfmnpq67dl" path="res://RawAssets/UI Icons/tile_0348.png" id="1_yska5"]
+[ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_f0roo"]
+[ext_resource type="PackedScene" uid="uid://b7w0qmqho8xrj" path="res://Props/interactable.tscn" id="3_3kwae"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47n7t"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdbt6"]
+radius = 5.0
+
+[node name="Dish" type="Node2D"]
+
+[node name="DishSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("1_yska5")
+
+[node name="Boundary" parent="." instance=ExtResource("2_f0roo")]
+
+[node name="CollisionShape2D" parent="Boundary" index="0"]
+shape = SubResource("CircleShape2D_47n7t")
+
+[node name="Interactable" parent="." instance=ExtResource("3_3kwae")]
+dialogue = "Dish here, pick me up!"
+interactable_type = 2
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+shape = SubResource("CircleShape2D_vdbt6")
+
+[node name="InteractKey" parent="Interactable" index="1"]
+scale = Vector2(0.563, 0.563)
+
+[node name="InteractKeyEndPos" parent="Interactable" index="3"]
+position = Vector2(0, -5)
+
+[editable path="Boundary"]
+[editable path="Interactable"]

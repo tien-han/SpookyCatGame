@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6cb4tv50vjuv"]
+[gd_scene load_steps=5 format=3 uid="uid://bx30cdh57ss6f"]
 
 [ext_resource type="Texture2D" uid="uid://6hbn8fn3x7dt" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 1/Original size/Cat Sprite 1.png" id="1_3t8fe"]
 [ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_tfbog"]
@@ -22,6 +22,7 @@ shape = SubResource("CapsuleShape2D_ishks")
 
 [node name="Interactable" parent="." instance=ExtResource("3_g8nhw")]
 dialogue = "Meow Wooorld"
+interactable_type = 1
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2(-2, 0)
