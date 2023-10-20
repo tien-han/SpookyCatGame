@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bc7nbi854sxhi"]
+[gd_scene load_steps=19 format=3 uid="uid://bc7nbi854sxhi"]
 
 [ext_resource type="Texture2D" uid="uid://cy13q3wewoykb" path="res://RawAssets/Tiles.png" id="1_02f74"]
 [ext_resource type="Script" path="res://Game/scene.gd" id="1_7akwa"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://Game/DialogueBox.gd" id="9_kyrvf"]
 [ext_resource type="Script" path="res://Props/DishPlacement.gd" id="10_7qkmt"]
 [ext_resource type="Script" path="res://QuestBox.gd" id="10_u2xph"]
+[ext_resource type="PackedScene" uid="uid://bx30cdh57ss6f" path="res://Props/Cat.tscn" id="13_g1eul"]
+[ext_resource type="Script" path="res://Props/Cat.gd" id="14_pu15m"]
 
 [sub_resource type="Theme" id="Theme_h3b7e"]
 default_font_size = 8
@@ -1386,6 +1388,9 @@ position = Vector2(64, 72)
 
 [node name="DishPlacement" type="Node2D" parent="."]
 script = ExtResource("10_7qkmt")
+
+[node name="Cat" parent="." instance=ExtResource("13_g1eul")]
+script = ExtResource("14_pu15m")
 
 [connection signal="timeout" from="Canvas/DialogueBox/VisibilityTimer" to="Canvas/DialogueBox" method="_on_timer_timeout"]
 [connection signal="timeout" from="Canvas/DialogueBox/PrintingTimer" to="Canvas/DialogueBox" method="_on_printing_timer_timeout"]

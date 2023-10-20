@@ -13,10 +13,8 @@ func _process(delta):
 
 func on_print_dialogue(dialogue):
     if text_to_print == text_printed:
-        print("Printing to screen %s" % dialogue)
         set_new_text(dialogue)
     else:
-        print("Adding to queue %s" % dialogue)
         queued_text.append(dialogue)
 
 func set_new_text(text):
@@ -30,11 +28,9 @@ func set_new_text(text):
 func _on_timer_timeout():
     $Dialogue.text = ""
     if queued_text.size() == 0:
-        print("visibility ended")
         self.visible = false
     else:
         var next_in_line = queued_text.pop_front()
-        print("setting new text %s" % next_in_line)
         set_new_text(next_in_line)
 
 func _on_printing_timer_timeout():
