@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://gkdnxm737byx"]
+[gd_scene load_steps=4 format=3 uid="uid://jplbbndfnx41"]
 
 [ext_resource type="Texture2D" uid="uid://ch3qu5vhx2g31" path="res://RawAssets/Objects/Beds/Hot Pink Bed_Front.png" id="1_wft0h"]
 [ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_a8hxb"]
