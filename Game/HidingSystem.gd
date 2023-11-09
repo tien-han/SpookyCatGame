@@ -25,6 +25,7 @@ func choose_hiding_spot():
     var next_possible_hiding_spots = hiding_spots.duplicate()
     next_possible_hiding_spots.erase(current_hiding_spot)
     current_hiding_spot = next_possible_hiding_spots[randi_range(0, next_possible_hiding_spots.size())-1]
+    emit_signal("new_hiding_spot", current_hiding_spot)
 
 func check_hiding_spot(interactable):
     if interactable is Interactable and interactable.is_hiding_spot:
