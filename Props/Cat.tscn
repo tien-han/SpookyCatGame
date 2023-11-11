@@ -1,7 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx30cdh57ss6f"]
+[gd_scene load_steps=8 format=3 uid="uid://bx30cdh57ss6f"]
 
-[ext_resource type="Texture2D" uid="uid://6hbn8fn3x7dt" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 1/Original size/Cat Sprite 1.png" id="1_3t8fe"]
 [ext_resource type="Script" path="res://Props/Cat.gd" id="1_hwhi2"]
+[ext_resource type="Texture2D" uid="uid://dt605bklgk6sq" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 1/Cat Sprite Atlas 1.png" id="2_7xet0"]
+
+[sub_resource type="Animation" id="Animation_pg2mc"]
+resource_name = "Idle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_n0kyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_vlesr"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f471a"]
+_data = {
+"Idle": SubResource("Animation_pg2mc"),
+"RESET": SubResource("Animation_n0kyd"),
+"Walk": SubResource("Animation_vlesr")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ydcq5"]
 radius = 3.0
@@ -15,7 +71,17 @@ script = ExtResource("1_hwhi2")
 
 [node name="CatSprite1" type="Sprite2D" parent="."]
 position = Vector2(-3, 0)
-texture = ExtResource("1_3t8fe")
+texture = ExtResource("2_7xet0")
+hframes = 6
+vframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CatSprite1")
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_f471a")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 3)
@@ -23,7 +89,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ydcq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
 radius = 193.33
 
 [node name="Timer" type="Timer" parent="."]

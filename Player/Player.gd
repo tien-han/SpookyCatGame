@@ -2,26 +2,35 @@ extends CharacterBody2D
 
 signal interacted_with(interactable : Interactable)
 
-const SPEED = 50.0
+const ACCELERATION = 800
+const SPEED = 50
+const FRICTION = 300
+
 var interactables = []
 var closest_interactable
 
+@onready var animationPlayer = $AnimationPlayer
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get("parameters/playback")
+
 func _physics_process(delta):
+    
     # Get the input direction and handle the movement/deceleration.
     # As good practice, you should replace UI actions with custom gameplay actions.
     var lr_direction = Input.get_axis("ui_left", "ui_right")
-
-    if lr_direction:
-        velocity.x = lr_direction * SPEED
-    else:
-        velocity.x = move_toward(velocity.x, 0, SPEED)
-
     var ud_direction = Input.get_axis("ui_up", "ui_down")
+    var input_vector = Vector2(lr_direction, ud_direction)
+    input_vector = input_vector.normalized()
 
-    if ud_direction:
-        velocity.y = ud_direction * SPEED
+    if input_vector != Vector2.ZERO:    
+        animationTree.set("parameters/Walk/blend_position", input_vector)       
+        animationTree.set("parameters/Idle/blend_position", input_vector)
+        animationState.travel("Walk")
+        velocity = velocity.move_toward(input_vector * SPEED, ACCELERATION * delta)
     else:
-        velocity.y = move_toward(velocity.y, 0, SPEED)
+        animationState.travel("Idle")
+        velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+
     move_and_slide()
     update_closest()
 

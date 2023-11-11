@@ -4,10 +4,16 @@ const speed = 50
 
 var destination: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+@onready var animation_player = $AnimationPlayer
 
 func _physics_process(_delta: float) -> void:
     var direction = to_local(nav_agent.get_next_path_position()).normalized()
     velocity = direction * speed
+    if velocity > Vector2(0,0):
+        animation_player.play("Walk")
+    else:
+        animation_player.play("Idle")
+    
     move_and_slide()
 
 func _ready():
