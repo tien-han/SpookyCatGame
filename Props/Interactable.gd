@@ -8,6 +8,7 @@ class_name Interactable
 var is_interacted = false
 
 signal print_dialogue
+signal interacted_with
 
 # Enum for Interactable Type
 enum InteractableType {
@@ -28,6 +29,7 @@ func can_interact():
 
 func interacted():
     if is_interacted == true:
+        emit_signal("interacted_with")
         emit_signal("print_dialogue", self.dialogue)
         var orig_scale = $InteractKey.scale
         create_tween().tween_property($InteractKey, "scale", orig_scale * 1.2, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)

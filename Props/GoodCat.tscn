@@ -1,0 +1,147 @@
+[gd_scene load_steps=17 format=3 uid="uid://egqdn8ugkebe"]
+
+[ext_resource type="Texture2D" uid="uid://cdmno6b33j173" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 2/Cat Sprite Atlas 2.png" id="1_1mpba"]
+[ext_resource type="Script" path="res://Props/GoodCat.gd" id="1_c7d7x"]
+[ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_0vd0w"]
+[ext_resource type="PackedScene" uid="uid://b7w0qmqho8xrj" path="res://Props/interactable.tscn" id="3_vwg76"]
+
+[sub_resource type="Animation" id="Animation_r8hvm"]
+resource_name = "InBoxLow"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 16]
+}
+
+[sub_resource type="Animation" id="Animation_lrf5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_burs6"]
+resource_name = "InBoxHigh"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 19, 18, 19, 20, 19]
+}
+
+[sub_resource type="Animation" id="Animation_0ajyp"]
+resource_name = "HopOutIn"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [21, 22, 23, 13, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vygxs"]
+_data = {
+"HopOutIn": SubResource("Animation_0ajyp"),
+"InBoxHigh": SubResource("Animation_burs6"),
+"InBoxLow": SubResource("Animation_r8hvm"),
+"RESET": SubResource("Animation_lrf5w")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_knbom"]
+animation = &"HopOutIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8ju7"]
+animation = &"InBoxHigh"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82bki"]
+animation = &"InBoxLow"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_shmsk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kn3sf"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_748es"]
+reset = false
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6pvm0"]
+states/HopOutIn/node = SubResource("AnimationNodeAnimation_knbom")
+states/HopOutIn/position = Vector2(549, 121)
+states/InBoxHigh/node = SubResource("AnimationNodeAnimation_s8ju7")
+states/InBoxHigh/position = Vector2(699, 121)
+states/InBoxLow/node = SubResource("AnimationNodeAnimation_82bki")
+states/InBoxLow/position = Vector2(406, 121)
+states/Start/position = Vector2(239, 121)
+transitions = ["HopOutIn", "InBoxLow", SubResource("AnimationNodeStateMachineTransition_shmsk"), "InBoxHigh", "HopOutIn", SubResource("AnimationNodeStateMachineTransition_kn3sf"), "Start", "InBoxLow", SubResource("AnimationNodeStateMachineTransition_748es")]
+
+[node name="GoodCat" type="Node2D"]
+script = ExtResource("1_c7d7x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1mpba")
+hframes = 6
+vframes = 4
+frame = 15
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vygxs")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_6pvm0")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
+[node name="Boundary" parent="." instance=ExtResource("2_0vd0w")]
+
+[node name="CollisionShape2D" parent="Boundary" index="0"]
+position = Vector2(0, 1.5)
+
+[node name="Interactable" parent="." instance=ExtResource("3_vwg76")]
+dialogue = "Meowwwwww"
+interactable_type = 1
+
+[node name="InteractKey" parent="Interactable" index="1"]
+position = Vector2(-4, 4.5)
+scale = Vector2(0.5, 0.4375)
+
+[node name="InteractKeyEndPos" parent="Interactable" index="3"]
+position = Vector2(0, -21)
+
+[connection signal="interacted_with" from="Interactable" to="." method="_on_interactable_interacted_with"]
+
+[editable path="Boundary"]
+[editable path="Interactable"]
