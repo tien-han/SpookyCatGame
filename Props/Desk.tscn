@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtneepob8sjwv"]
+
+[ext_resource type="Texture2D" uid="uid://dr03uy82htibi" path="res://RawAssets/Objects/Desks + Small Tables + Cabinets/Wooden Desk_Laptop Open.png" id="1_kjjfq"]
+[ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_nk1w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byuec"]
+size = Vector2(20, 24)
+
+[node name="LaptopDesk" type="Node2D"]
+
+[node name="WoodenDeskLaptopOpen" type="Sprite2D" parent="."]
+texture = ExtResource("1_kjjfq")
+
+[node name="Boundary" parent="." instance=ExtResource("2_nk1w2")]
+
+[node name="CollisionShape2D" parent="Boundary" index="0"]
+shape = SubResource("RectangleShape2D_byuec")
+
+[editable path="Boundary"]

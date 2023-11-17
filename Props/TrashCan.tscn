@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7el6a1m7c3k6"]
+
+[ext_resource type="Texture2D" uid="uid://btpofry4t28ng" path="res://RawAssets/Objects/Trashcans/Trashcan_Close.png" id="1_rn663"]
+[ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_owaec"]
+[ext_resource type="PackedScene" uid="uid://b7w0qmqho8xrj" path="res://Props/interactable.tscn" id="3_y3128"]
+
+[node name="TrashCan" type="Node2D"]
+
+[node name="TrashcanClose" type="Sprite2D" parent="."]
+texture = ExtResource("1_rn663")
+
+[node name="Boundary" parent="." instance=ExtResource("2_owaec")]
+
+[node name="Interactable" parent="." instance=ExtResource("3_y3128")]
+
+[node name="InteractKey" parent="Interactable" index="1"]
+scale = Vector2(0.5, 0.5)
+
+[node name="InteractKeyEndPos" parent="Interactable" index="3"]
+position = Vector2(0, -8)
+
+[editable path="Boundary"]
+[editable path="Interactable"]
