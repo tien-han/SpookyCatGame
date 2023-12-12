@@ -15,9 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bx30cdh57ss6f" path="res://Props/Cat.tscn" id="13_g1eul"]
 [ext_resource type="PackedScene" uid="uid://egqdn8ugkebe" path="res://Props/GoodCat.tscn" id="14_qur5f"]
 
-[sub_resource type="Theme" id="Theme_h3b7e"]
-default_font_size = 8
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41n7q"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -1437,55 +1434,14 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_6lvby")
 sources/2 = SubResource("TileSetAtlasSource_gxans")
 
+[sub_resource type="Theme" id="Theme_h3b7e"]
+default_font_size = 8
+
 [node name="RootNode" type="Node2D"]
 script = ExtResource("1_7akwa")
 
 [node name="HidingSystem" type="Node2D" parent="."]
 script = ExtResource("2_melcq")
-
-[node name="Canvas" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 1.0
-offset_right = 321.0
-offset_bottom = 180.0
-
-[node name="DialogueBox" type="PanelContainer" parent="Canvas"]
-layout_mode = 0
-offset_left = 142.0
-offset_top = 124.0
-offset_right = 319.0
-offset_bottom = 178.0
-script = ExtResource("9_kyrvf")
-
-[node name="Dialogue" type="RichTextLabel" parent="Canvas/DialogueBox"]
-layout_mode = 2
-theme = SubResource("Theme_h3b7e")
-
-[node name="VisibilityTimer" type="Timer" parent="Canvas/DialogueBox"]
-wait_time = 2.5
-one_shot = true
-
-[node name="PrintingTimer" type="Timer" parent="Canvas/DialogueBox"]
-wait_time = 0.05
-
-[node name="QueueIndicator" type="Sprite2D" parent="Canvas/DialogueBox"]
-visible = false
-position = Vector2(171, 49)
-scale = Vector2(0.4375, 0.4375)
-texture = ExtResource("4_sdeuc")
-
-[node name="QuestBox" type="PanelContainer" parent="Canvas"]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 89.0
-offset_right = 316.0
-offset_bottom = 117.0
-script = ExtResource("10_u2xph")
-
-[node name="Dialogue" type="RichTextLabel" parent="Canvas/QuestBox"]
-layout_mode = 2
-fit_content = true
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1mfjo")
@@ -1536,6 +1492,51 @@ position = Vector2(54, 41)
 [node name="GoodCat" parent="." instance=ExtResource("14_qur5f")]
 position = Vector2(220, 53)
 
+[node name="Canvas" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 321.0
+offset_bottom = 180.0
+
+[node name="DialogueBox" type="PanelContainer" parent="Canvas"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 143.0
+offset_right = 306.0
+offset_bottom = 171.0
+script = ExtResource("9_kyrvf")
+metadata/_edit_group_ = true
+
+[node name="Dialogue" type="RichTextLabel" parent="Canvas/DialogueBox"]
+layout_mode = 2
+theme = SubResource("Theme_h3b7e")
+
+[node name="VisibilityTimer" type="Timer" parent="Canvas/DialogueBox"]
+wait_time = 2.5
+one_shot = true
+
+[node name="PrintingTimer" type="Timer" parent="Canvas/DialogueBox"]
+wait_time = 0.05
+
+[node name="QueueIndicator" type="Sprite2D" parent="Canvas/DialogueBox"]
+visible = false
+position = Vector2(171, 49)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("4_sdeuc")
+
+[node name="QuestBox" type="PanelContainer" parent="Canvas"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 89.0
+offset_right = 316.0
+offset_bottom = 117.0
+script = ExtResource("10_u2xph")
+
+[node name="Dialogue" type="RichTextLabel" parent="Canvas/QuestBox"]
+layout_mode = 2
+fit_content = true
+
+[connection signal="interacted_with" from="Player" to="." method="_on_player_interacted_with"]
 [connection signal="timeout" from="Canvas/DialogueBox/VisibilityTimer" to="Canvas/DialogueBox" method="_on_timer_timeout"]
 [connection signal="timeout" from="Canvas/DialogueBox/PrintingTimer" to="Canvas/DialogueBox" method="_on_printing_timer_timeout"]
-[connection signal="interacted_with" from="Player" to="." method="_on_player_interacted_with"]

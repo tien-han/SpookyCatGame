@@ -7,6 +7,7 @@ var text_printed = ""
 
 func _ready():
     sb.add_listener("print_dialogue", self, "on_print_dialogue")
+    visible = false
 
 func _process(delta):
     $QueueIndicator.visible = queued_text.size() > 0
