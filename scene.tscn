@@ -1440,9 +1440,6 @@ default_font_size = 8
 [node name="RootNode" type="Node2D"]
 script = ExtResource("1_7akwa")
 
-[node name="HidingSystem" type="Node2D" parent="."]
-script = ExtResource("2_melcq")
-
 [node name="Floor" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1mfjo")
 format = 2
@@ -1486,11 +1483,14 @@ position = Vector2(64, 72)
 [node name="DishPlacement" type="Node2D" parent="."]
 script = ExtResource("10_7qkmt")
 
-[node name="Cat" parent="." instance=ExtResource("13_g1eul")]
-position = Vector2(54, 41)
-
 [node name="GoodCat" parent="." instance=ExtResource("14_qur5f")]
 position = Vector2(220, 53)
+
+[node name="HidingSystem" type="Node2D" parent="."]
+script = ExtResource("2_melcq")
+
+[node name="Cat" parent="HidingSystem" instance=ExtResource("13_g1eul")]
+position = Vector2(54, 41)
 
 [node name="Canvas" type="Control" parent="."]
 layout_mode = 3
