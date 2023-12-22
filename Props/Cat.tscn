@@ -1,37 +1,97 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx30cdh57ss6f"]
+[gd_scene load_steps=8 format=3 uid="uid://bx30cdh57ss6f"]
 
-[ext_resource type="Texture2D" uid="uid://6hbn8fn3x7dt" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 1/Original size/Cat Sprite 1.png" id="1_3t8fe"]
-[ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_tfbog"]
-[ext_resource type="PackedScene" uid="uid://b7w0qmqho8xrj" path="res://Props/interactable.tscn" id="3_g8nhw"]
+[ext_resource type="Script" path="res://Props/Cat.gd" id="1_hwhi2"]
+[ext_resource type="Texture2D" uid="uid://dt605bklgk6sq" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 1/Cat Sprite Atlas 1.png" id="2_7xet0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ishks"]
-radius = 7.0
-height = 16.0
+[sub_resource type="Animation" id="Animation_pg2mc"]
+resource_name = "Idle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
 
-[node name="Cat" type="Node2D"]
+[sub_resource type="Animation" id="Animation_n0kyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_vlesr"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f471a"]
+_data = {
+"Idle": SubResource("Animation_pg2mc"),
+"RESET": SubResource("Animation_n0kyd"),
+"Walk": SubResource("Animation_vlesr")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ydcq5"]
+radius = 3.0
+height = 12.0
+
+[node name="Cat" type="CharacterBody2D"]
+collision_layer = 0
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_hwhi2")
 
 [node name="CatSprite1" type="Sprite2D" parent="."]
 position = Vector2(-3, 0)
-texture = ExtResource("1_3t8fe")
+texture = ExtResource("2_7xet0")
+hframes = 6
+vframes = 4
+frame = 2
 
-[node name="Boundary" parent="." instance=ExtResource("2_tfbog")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CatSprite1")
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_f471a")
+}
 
-[node name="CollisionShape2D" parent="Boundary" index="0"]
-position = Vector2(-2, 0)
-shape = SubResource("CapsuleShape2D_ishks")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ydcq5")
 
-[node name="Interactable" parent="." instance=ExtResource("3_g8nhw")]
-dialogue = "Meow Wooorld"
-interactable_type = 1
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 193.33
 
-[node name="CollisionShape2D" parent="Interactable" index="0"]
-position = Vector2(-2, 0)
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
-[node name="InteractKey" parent="Interactable" index="1"]
-scale = Vector2(0.5625, 0.5625)
-
-[node name="InteractKeyEndPos" parent="Interactable" index="3"]
-position = Vector2(0, -15)
-
-[editable path="Boundary"]
-[editable path="Interactable"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
