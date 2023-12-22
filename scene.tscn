@@ -5,15 +5,37 @@
 [ext_resource type="Script" path="res://Game/HidingSystem.gd" id="2_melcq"]
 [ext_resource type="Texture2D" uid="uid://b1dgjj2x08pn6" path="res://RawAssets/All Assets.png" id="2_va2l0"]
 [ext_resource type="PackedScene" uid="uid://dexjnwxb5r6uc" path="res://Player/Player.tscn" id="3_ekd51"]
+[ext_resource type="PackedScene" uid="uid://jplbbndfnx41" path="res://Props/Bed.tscn" id="5_3ly7e"]
+[ext_resource type="PackedScene" uid="uid://bx30cdh57ss6f" path="res://Props/Cat.tscn" id="6_1owbx"]
+[ext_resource type="PackedScene" uid="uid://dtneepob8sjwv" path="res://Props/Desk.tscn" id="8_c6tpc"]
+[ext_resource type="PackedScene" uid="uid://b7el6a1m7c3k6" path="res://Props/TrashCan.tscn" id="9_f1chq"]
 [ext_resource type="Texture2D" uid="uid://civ5m707i1r6u" path="res://RawAssets/UI Icons/tile_0134.png" id="4_sdeuc"]
-[ext_resource type="PackedScene" uid="uid://gkdnxm737byx" path="res://Props/Bed.tscn" id="5_3ly7e"]
 [ext_resource type="PackedScene" uid="uid://8nicpnt317io" path="res://Props/DuffleBag.tscn" id="9_7kej2"]
 [ext_resource type="PackedScene" uid="uid://ii7pjbsg2rl3" path="res://Props/Dish.tscn" id="9_k1s4l"]
 [ext_resource type="Script" path="res://Game/DialogueBox.gd" id="9_kyrvf"]
+[ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="9_ppd45"]
+[ext_resource type="Texture2D" uid="uid://4lmj4puk5fxk" path="res://RawAssets/Objects/Picture Frames/Landscape Picture.png" id="10_4huul"]
 [ext_resource type="Script" path="res://Props/DishPlacement.gd" id="10_7qkmt"]
 [ext_resource type="Script" path="res://QuestBox.gd" id="10_u2xph"]
-[ext_resource type="PackedScene" uid="uid://bx30cdh57ss6f" path="res://Props/Cat.tscn" id="13_g1eul"]
-[ext_resource type="PackedScene" uid="uid://egqdn8ugkebe" path="res://Props/GoodCat.tscn" id="14_qur5f"]
+[ext_resource type="Texture2D" uid="uid://biac82ggsqq85" path="res://RawAssets/Objects/Chairs/Blue Chair_Back.png" id="11_y5wj7"]
+[ext_resource type="Texture2D" uid="uid://dt3n6gvpbqlvn" path="res://RawAssets/Objects/Doors/Big Brown Door_Close Lined.png" id="16_hamjk"]
+[ext_resource type="Texture2D" uid="uid://1ne2ucfbcs4s" path="res://RawAssets/Objects/Laptop + White Boards/Brown White Board_Empty.png" id="17_xveje"]
+[ext_resource type="Texture2D" uid="uid://c6iprwubdmkhp" path="res://RawAssets/Objects/Laptop + White Boards/Brown White Board_Decorated.png" id="18_36q2a"]
+[ext_resource type="Texture2D" uid="uid://0pb6rh5b8qok" path="res://RawAssets/Objects/Bath Tables + Bath Cabinet/Bath Brown Cabinet.png" id="19_76asv"]
+[ext_resource type="Texture2D" uid="uid://o7hrs8oxaccy" path="res://RawAssets/Objects/Bath Tables + Bath Cabinet/Bath White Counter Top_Table Empty.png" id="20_j718m"]
+[ext_resource type="Texture2D" uid="uid://degbka5s31g8t" path="res://RawAssets/Objects/Bath Tables + Bath Cabinet/Bath Black Sink_Front Decorated.png" id="21_2c7vw"]
+[ext_resource type="Texture2D" uid="uid://ncpd0t25q64a" path="res://RawAssets/Objects/Chairs/Blue Stool.png" id="21_52881"]
+[ext_resource type="Texture2D" uid="uid://c1pdsqjt683x7" path="res://RawAssets/Objects/Bathtub + Toilet + Toilet Paper/Bathtub_Side.png" id="22_y7a0r"]
+[ext_resource type="Texture2D" uid="uid://op4yifq5s5va" path="res://RawAssets/Objects/Bathtub + Toilet + Toilet Paper/Toilet Front_Close.png" id="23_rkmgq"]
+[ext_resource type="Texture2D" uid="uid://cr77fs46d1iew" path="res://RawAssets/Objects/Bathtub + Toilet + Toilet Paper/Toilet Paper_Front.png" id="24_8xqx3"]
+[ext_resource type="Texture2D" uid="uid://cedy576yiwk1h" path="res://RawAssets/Objects/Picture Frames/Ocean Picture.png" id="26_0a36h"]
+[ext_resource type="Texture2D" uid="uid://cg33b3mp0y7s8" path="res://RawAssets/Objects/Trashcans/White Trashcan.png" id="27_usp44"]
+[ext_resource type="Texture2D" uid="uid://cgp02h2sqqqow" path="res://RawAssets/Objects/Shelves/Bath Shelf_Empty.png" id="28_6w8dk"]
+[ext_resource type="Texture2D" uid="uid://k65kn72rp072" path="res://RawAssets/Objects/Shelves/Bath Shelf_Decorated.png" id="29_hwc3x"]
+[ext_resource type="Texture2D" uid="uid://drxjhbwit3bux" path="res://RawAssets/Objects/Bath Tables + Bath Cabinet/Bath White Sink_Front Decorated.png" id="30_gopw6"]
+[ext_resource type="Texture2D" uid="uid://5017occ0b58r" path="res://RawAssets/Objects/Picture Frames/Coin Picture.png" id="31_d32mv"]
+[ext_resource type="Texture2D" uid="uid://bk1q62ym0241q" path="res://RawAssets/Objects/Picture Frames/Flower Picture.png" id="32_524pl"]
+[ext_resource type="Texture2D" uid="uid://dkkdhkw2ma1jx" path="res://RawAssets/Objects/Shelves/Wooden Shelf_Empty.png" id="33_4njaf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41n7q"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -562,6 +584,9 @@ margins = Vector2i(15, 0)
 18:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:4/0/physics_layer_0/angular_velocity = 0.0
 18:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -8, 8, -8, 8, 8, 4, 8)
+20:6/0 = 0
+20:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+20:6/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxans"]
 texture = ExtResource("2_va2l0")
@@ -1443,45 +1468,170 @@ script = ExtResource("1_7akwa")
 [node name="Floor" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1mfjo")
 format = 2
-layer_0/tile_data = PackedInt32Array(131074, 393216, 0, 131075, 393216, 0, 131076, 393216, 0, 131077, 393216, 0, 131078, 393216, 0, 131079, 524288, 2, 131082, 524288, 2, 131081, 524288, 2, 131080, 524288, 2, 65543, 851968, 5, 65544, 851968, 5, 65545, 851968, 5, 65546, 851968, 5, 196616, 851968, 3, 196617, 851968, 3, 196618, 851968, 3, 65547, 1048576, 0, 65548, 1048576, 0, 65549, 1048576, 0, 65550, 1048576, 0, 65551, 1048576, 0, 131083, 655360, 2, 131084, 655360, 2, 131085, 655360, 2, 131086, 655360, 2, 131087, 655360, 2, 196619, 655360, 2, 196620, 655360, 2, 196621, 655360, 2, 196622, 655360, 2, 196623, 655360, 2, 262155, 655360, 2, 262156, 655360, 2, 262157, 655360, 2, 262158, 655360, 2, 262159, 655360, 2, 196610, 393216, 0, 196611, 393216, 0, 196612, 393216, 0, 196613, 393216, 0, 196614, 393216, 0, 196615, 851968, 3, 262146, 393216, 0, 327682, 393216, 0, 262147, 393216, 0, 327683, 393216, 0, 262148, 393216, 0, 327684, 393216, 0, 65539, 1179648, 0, 65540, 1179648, 0, 65537, 1179648, 0, 65538, 1179648, 0, 65541, 1179648, 0, 262149, 393216, 0, 327685, 393216, 0, 262150, 393216, 0, 327686, 393216, 0, 65542, 1179648, 0, 131073, 393216, 0, 262145, 393216, 0, 196609, 393216, 0, 327681, 393216, 0, 458757, 524288, 2, 458753, 786432, 0, 458754, 786432, 0, 458755, 786432, 0, 458756, 786432, 0, 393221, 524288, 2, 458758, 786432, 0, 458759, 786432, 0, 589825, 524288, 2, 655361, 524288, 2, 589826, 524288, 2, 655362, 524288, 2, 589827, 524288, 2, 655363, 524288, 2, 589828, 524288, 2, 655364, 524288, 2, 589829, 524288, 2, 655365, 524288, 2, 589830, 524288, 2, 655366, 524288, 2, 589831, 524288, 2, 655367, 524288, 2, 524289, 524288, 2, 524290, 524288, 2, 524291, 524288, 2, 524292, 524288, 2, 524293, 524288, 2, 524294, 524288, 2, 524295, 524288, 2)
+layer_0/tile_data = PackedInt32Array(65537, 1179648, 0, 131073, 393216, 0, 196609, 393216, 0, 262145, 393216, 0, 327681, 393216, 0, 65538, 1179648, 0, 131074, 393216, 0, 196610, 393216, 0, 262146, 393216, 0, 327682, 393216, 0, 65539, 1179648, 0, 131075, 393216, 0, 196611, 393216, 0, 262147, 393216, 0, 327683, 393216, 0, 65540, 1179648, 0, 131076, 393216, 0, 196612, 393216, 0, 262148, 393216, 0, 327684, 393216, 0, 65541, 1179648, 0, 131077, 393216, 0, 196613, 393216, 0, 262149, 393216, 0, 65536, 1179648, 0, 131072, 393216, 0, 196608, 393216, 0, 327680, 393216, 0, 65542, 1179648, 0, 131078, 393216, 0, 196614, 393216, 0, 262150, 393216, 0, 327685, 393216, 0, 327686, 393216, 0, 458757, 524288, 2, 393221, 524288, 2, 131079, 524288, 2, 131080, 524288, 2, 131081, 524288, 2, 262144, 393216, 0, 458752, 851970, 1, 458753, 851970, 1, 458754, 851970, 1, 458755, 851970, 1, 524291, 393216, 7, 524290, 393216, 7, 524289, 393216, 7, 524288, 393216, 7, 393216, 851970, 0, 393217, 851970, 0, 393218, 851970, 0, 393219, 851970, 0, 393220, 851970, 0, 458756, 851970, 1, 524292, 393216, 7, 589829, 655360, 2, 589824, 393216, 7, 655360, 393216, 7, 589825, 393216, 7, 589826, 393216, 7, 589827, 393216, 7, 589828, 393216, 7, 14, 1048576, 0, 13, 1048576, 0, 12, 1048576, 0, 11, 1048576, 0, 10, 1048576, 0, 15, 1048576, 0, 524293, 655360, 2, 65546, 0, 6, 65547, 0, 6, 65548, 0, 6, 65549, 0, 6, 65550, 0, 6, 65551, 0, 6, 131087, 0, 6, 131086, 0, 6, 131085, 0, 6, 131084, 0, 6, 131083, 0, 6, 131082, 0, 6, 196618, 0, 6, 196619, 0, 6, 196620, 0, 6, 196621, 0, 6, 196622, 0, 6, 196623, 0, 6, 262159, 0, 6, 262158, 0, 6, 262157, 0, 6, 262156, 0, 6, 262155, 0, 6, 262154, 0, 6, 720897, 786432, 0, 786433, 524288, 2, 851969, 524288, 2, 720898, 786432, 0, 786434, 524288, 2, 851970, 524288, 2, 720899, 786432, 0, 786435, 524288, 2, 851971, 524288, 2, 720900, 786432, 0, 786436, 524288, 2, 851972, 524288, 2, 720901, 524288, 2, 786437, 524288, 2, 851973, 524288, 2, 720902, 786432, 0, 786438, 524288, 2, 851974, 524288, 2, 720903, 786432, 0, 786439, 524288, 2, 851975, 524288, 2, 917505, 524288, 2, 917506, 524288, 2, 917507, 524288, 2, 917508, 524288, 2, 917509, 524288, 2, 917510, 524288, 2, 917511, 524288, 2, 589833, 983042, 1, 655369, 0, 6, 720905, 0, 6, 786441, 0, 6, 589834, 983042, 1, 655370, 0, 6, 720906, 0, 6, 786442, 0, 6, 589835, 983042, 1, 655371, 0, 6, 720907, 0, 6, 786443, 0, 6, 589836, 983042, 1, 655372, 0, 6, 720908, 0, 6, 786444, 0, 6, 589837, 983042, 1, 655373, 0, 6, 720909, 0, 6, 786445, 0, 6, 524297, 983042, 0, 524298, 983042, 0, 524299, 983042, 0, 524300, 983042, 0, 524301, 983042, 0, 655365, 589824, 3, 786440, 524288, 2)
 
 [node name="Borders" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1mfjo")
 format = 2
-layer_0/tile_data = PackedInt32Array(1, 786432, 3, 65537, 786432, 4, 2, 851968, 3, 3, 851968, 3, 4, 851968, 3, 65540, 983040, 3, 65539, 983040, 3, 6, 917504, 3, 65542, 917504, 4, 5, 851968, 3, 131073, 786432, 4, 196609, 786432, 4, 262145, 786432, 4, 327681, 786432, 5, 327682, 851968, 5, 327683, 851968, 5, 327684, 851968, 5, 327686, 917504, 5, 458756, 917504, 4, 458758, 786432, 4, 393218, 851968, 3, 393219, 851968, 3, 393220, 917504, 3, 393222, 786432, 3)
+layer_0/tile_data = PackedInt32Array(458758, 786432, 4, 393222, 786432, 3, 1, 851968, 3, 327681, 851968, 5, 2, 851968, 3, 327682, 851968, 5, 3, 851968, 3, 65539, 983040, 3, 327683, 851968, 5, 4, 851968, 3, 0, 786432, 3, 65536, 786432, 4, 131072, 786432, 4, 196608, 786432, 4, 262144, 786432, 4, 327680, 786432, 5, 65538, 983040, 3, 65542, 917504, 4, 6, 917504, 3, 5, 851968, 3, 327686, 917504, 5, 327684, 851968, 5, 458756, 917504, 4, 262150, 917504, 4, 196614, 917504, 4, 393216, 786432, 3, 393217, 851968, 3, 393218, 851968, 3, 393219, 851968, 3, 393220, 917504, 3, 458752, 786432, 4, 655360, 786432, 5, 524288, 786432, 4, 589824, 786432, 4, 524292, 917504, 4, 655361, 786432, 3, 720897, 786432, 4, 786433, 786432, 4, 851969, 786432, 4, 917505, 786432, 5, 655364, 917504, 3, 655362, 851968, 3, 655363, 851968, 3, 720900, 917504, 4, 655367, 917504, 3, 655366, 786432, 3, 720903, 917504, 4, 589828, 917504, 4, 589830, 786432, 4, 524294, 786432, 4, 917506, 851968, 5, 917507, 851968, 5, 917508, 851968, 5, 917509, 851968, 5, 917510, 851968, 5, 917511, 917504, 5, 851975, 917504, 4, 720904, 851968, 5, 720905, 786432, 4, 655369, 786432, 4, 589833, 786432, 4, 524297, 786432, 3, 524301, 917504, 3, 786445, 917504, 5, 524298, 851968, 3, 524299, 851968, 3, 524300, 851968, 3, 589837, 917504, 4, 655373, 917504, 4, 720909, 917504, 4, 786444, 851968, 5, 786443, 851968, 5, 786442, 851968, 5, 786441, 851968, 5, 786440, 851968, 5, 65543, 851968, 5, 65544, 851968, 5, 65545, 851968, 5, 196615, 851968, 3, 196616, 851968, 3, 196617, 851968, 3, -65521, 917504, 3, 262159, 917504, 5, 262154, 786432, 5, -65526, 786432, 3, -65525, 851968, 3, -65524, 851968, 3, -65523, 851968, 3, -65522, 851968, 3, 262155, 851968, 5, 262156, 851968, 5, 262157, 851968, 5, 262158, 851968, 5, 15, 917504, 4, 65551, 917504, 4, 131087, 917504, 4, 196623, 917504, 4, 10, 786432, 4, 65546, 786432, 4, 196618, 786432, 4, 720902, 786432, 4)
 
 [node name="Player" parent="." instance=ExtResource("3_ekd51")]
-position = Vector2(89, 48)
+position = Vector2(88, 48)
 
-[node name="Bedroom" type="Node2D" parent="."]
-position = Vector2(96, 45)
-
-[node name="Bed" parent="Bedroom" instance=ExtResource("5_3ly7e")]
-position = Vector2(11, 109)
-
-[node name="DuffleBag" parent="." instance=ExtResource("9_7kej2")]
-position = Vector2(45, 150)
-
-[node name="Dish1" parent="." instance=ExtResource("9_k1s4l")]
-position = Vector2(104, 72)
-
-[node name="Dish2" parent="." instance=ExtResource("9_k1s4l")]
-position = Vector2(80, 72)
-
-[node name="Dish3" parent="." instance=ExtResource("9_k1s4l")]
-position = Vector2(40, 64)
-
-[node name="Dish4" parent="." instance=ExtResource("9_k1s4l")]
-position = Vector2(56, 56)
-
-[node name="Dish5" parent="." instance=ExtResource("9_k1s4l")]
-position = Vector2(32, 48)
-
-[node name="Dish6" parent="." instance=ExtResource("9_k1s4l")]
-position = Vector2(64, 72)
+[node name="Cat" parent="." instance=ExtResource("6_1owbx")]
+position = Vector2(40, 208)
 
 [node name="DishPlacement" type="Node2D" parent="."]
 script = ExtResource("10_7qkmt")
+
+[node name="Dish1" parent="DishPlacement" instance=ExtResource("9_k1s4l")]
+position = Vector2(16, -8)
+
+[node name="Dish2" parent="DishPlacement" instance=ExtResource("9_k1s4l")]
+position = Vector2(32, -8)
+
+[node name="Dish3" parent="DishPlacement" instance=ExtResource("9_k1s4l")]
+position = Vector2(48, -8)
+
+[node name="Dish4" parent="DishPlacement" instance=ExtResource("9_k1s4l")]
+position = Vector2(64, -8)
+
+[node name="Dish5" parent="DishPlacement" instance=ExtResource("9_k1s4l")]
+position = Vector2(80, -8)
+
+[node name="Dish6" parent="DishPlacement" instance=ExtResource("9_k1s4l")]
+position = Vector2(96, -8)
+
+[node name="Bedroom" type="Node2D" parent="."]
+position = Vector2(112, 88)
+
+[node name="BigBrownDoorCloseLined" type="Sprite2D" parent="Bedroom"]
+position = Vector2(-72, 96)
+texture = ExtResource("16_hamjk")
+
+[node name="Bed" parent="Bedroom" instance=ExtResource("5_3ly7e")]
+position = Vector2(-8, 136)
+rotation = 1.5708
+
+[node name="CoinPicture" type="Sprite2D" parent="Bedroom"]
+position = Vector2(-48, 88)
+texture = ExtResource("31_d32mv")
+
+[node name="Office" type="Node2D" parent="."]
+
+[node name="LaptopDesk" parent="Office" instance=ExtResource("8_c6tpc")]
+position = Vector2(40, 32)
+
+[node name="TrashCan" parent="Office" instance=ExtResource("9_f1chq")]
+position = Vector2(64, 40)
+
+[node name="LandscapePicture" type="Sprite2D" parent="Office"]
+position = Vector2(16, 16)
+texture = ExtResource("10_4huul")
+
+[node name="BlueChairBack" type="Sprite2D" parent="Office"]
+position = Vector2(40, 48)
+texture = ExtResource("11_y5wj7")
+
+[node name="Boundary" parent="Office/BlueChairBack" instance=ExtResource("9_ppd45")]
+
+[node name="BrownWhiteBoardEmpty" type="Sprite2D" parent="Office"]
+position = Vector2(88, 16)
+texture = ExtResource("17_xveje")
+
+[node name="BrownWhiteBoardDecorated" type="Sprite2D" parent="Office"]
+position = Vector2(64, 16)
+texture = ExtResource("18_36q2a")
+
+[node name="Kitchen" type="Node2D" parent="."]
+position = Vector2(200, 48)
+
+[node name="BathWhiteCounterTopTableEmpty6" type="Sprite2D" parent="Kitchen"]
+position = Vector2(40, -32)
+texture = ExtResource("20_j718m")
+
+[node name="BathWhiteCounterTopTableEmpty5" type="Sprite2D" parent="Kitchen"]
+position = Vector2(24, -32)
+texture = ExtResource("20_j718m")
+
+[node name="BathWhiteCounterTopTableEmpty4" type="Sprite2D" parent="Kitchen"]
+position = Vector2(8, -32)
+texture = ExtResource("20_j718m")
+
+[node name="BathWhiteCounterTopTableEmpty3" type="Sprite2D" parent="Kitchen"]
+position = Vector2(-8, -32)
+texture = ExtResource("20_j718m")
+
+[node name="FlowerPicture" type="Sprite2D" parent="Kitchen"]
+position = Vector2(8, -48)
+texture = ExtResource("32_524pl")
+
+[node name="WoodenShelfEmpty" type="Sprite2D" parent="Kitchen"]
+position = Vector2(24, -48)
+texture = ExtResource("33_4njaf")
+
+[node name="BathBrownCabinet2" type="Sprite2D" parent="Kitchen"]
+position = Vector2(-8, -48)
+texture = ExtResource("19_76asv")
+
+[node name="BathBrownCabinet" type="Sprite2D" parent="Kitchen"]
+position = Vector2(-24, -48)
+texture = ExtResource("19_76asv")
+
+[node name="BathWhiteCounterTopTableEmpty" type="Sprite2D" parent="Kitchen"]
+position = Vector2(-24, -32)
+texture = ExtResource("20_j718m")
+
+[node name="BathWhiteCounterTopTableEmpty2" type="Sprite2D" parent="Kitchen"]
+scale = Vector2(1.83333, 1)
+texture = ExtResource("20_j718m")
+
+[node name="BlueStool" type="Sprite2D" parent="Kitchen"]
+position = Vector2(-8, 16)
+texture = ExtResource("21_52881")
+
+[node name="BlueStool2" type="Sprite2D" parent="Kitchen"]
+position = Vector2(8, 16)
+texture = ExtResource("21_52881")
+
+[node name="Bathroom" type="Node2D" parent="."]
+position = Vector2(184, 184)
+
+[node name="BathtubSide" type="Sprite2D" parent="Bathroom"]
+position = Vector2(16, 8)
+texture = ExtResource("22_y7a0r")
+
+[node name="BathBlackSinkFrontDecorated" type="Sprite2D" parent="Bathroom"]
+position = Vector2(-24, -24)
+texture = ExtResource("21_2c7vw")
+
+[node name="ToiletFrontClose" type="Sprite2D" parent="Bathroom"]
+position = Vector2(32, -24)
+texture = ExtResource("23_rkmgq")
+
+[node name="ToiletPaperFront" type="Sprite2D" parent="Bathroom"]
+position = Vector2(24, -32)
+texture = ExtResource("24_8xqx3")
+
+[node name="OceanPicture" type="Sprite2D" parent="Bathroom"]
+position = Vector2(-8, -40)
+texture = ExtResource("26_0a36h")
+
+[node name="WhiteTrashcan" type="Sprite2D" parent="Bathroom"]
+position = Vector2(-8, -24)
+texture = ExtResource("27_usp44")
+
+[node name="BathShelfEmpty" type="Sprite2D" parent="Bathroom"]
+position = Vector2(8, -40)
+texture = ExtResource("28_6w8dk")
+
+[node name="BathShelfDecorated" type="Sprite2D" parent="Bathroom"]
+position = Vector2(-24, -40)
+texture = ExtResource("29_hwc3x")
+
+[node name="BathWhiteSinkFrontDecorated" type="Sprite2D" parent="Bathroom"]
+position = Vector2(8, -24)
+texture = ExtResource("30_gopw6")
 
 [node name="GoodCat" parent="." instance=ExtResource("14_qur5f")]
 position = Vector2(220, 53)
