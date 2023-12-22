@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dosl5recmo7mm"
+path="res://.godot/imported/mraww_mrow.wav-ffa266e4fd7bc7588658d58aea216d97.sample"
+
+[deps]
+
+source_file="res://RawAssets/Cat Sounds/mraww_mrow.wav"
+dest_files=["res://.godot/imported/mraww_mrow.wav-ffa266e4fd7bc7588658d58aea216d97.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

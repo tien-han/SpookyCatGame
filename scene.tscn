@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bc7nbi854sxhi"]
+[gd_scene load_steps=60 format=3 uid="uid://bc7nbi854sxhi"]
 
 [ext_resource type="Texture2D" uid="uid://cy13q3wewoykb" path="res://RawAssets/Tiles.png" id="1_02f74"]
 [ext_resource type="Script" path="res://Game/scene.gd" id="1_7akwa"]
@@ -8,15 +8,22 @@
 [ext_resource type="Texture2D" uid="uid://civ5m707i1r6u" path="res://RawAssets/UI Icons/tile_0134.png" id="4_sdeuc"]
 [ext_resource type="PackedScene" uid="uid://gkdnxm737byx" path="res://Props/Bed.tscn" id="5_3ly7e"]
 [ext_resource type="PackedScene" uid="uid://bx30cdh57ss6f" path="res://Props/Cat.tscn" id="6_1owbx"]
+[ext_resource type="AudioStream" uid="uid://bae5exbg76mre" path="res://RawAssets/Cat Sounds/demon_high.wav" id="7_6yyej"]
 [ext_resource type="PackedScene" uid="uid://cx52ji0dq2yks" path="res://Props/Desk.tscn" id="8_c6tpc"]
+[ext_resource type="AudioStream" uid="uid://c7xrfsji1lxyd" path="res://RawAssets/Cat Sounds/demon_low.wav" id="8_elwiy"]
 [ext_resource type="PackedScene" uid="uid://dn0svr3rg0hct" path="res://Props/TrashCan.tscn" id="9_f1chq"]
 [ext_resource type="PackedScene" uid="uid://ii7pjbsg2rl3" path="res://Props/Dish.tscn" id="9_k1s4l"]
 [ext_resource type="Script" path="res://Game/DialogueBox.gd" id="9_kyrvf"]
 [ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="9_ppd45"]
+[ext_resource type="AudioStream" uid="uid://d0rg0mdb4rsom" path="res://RawAssets/Cat Sounds/demon_normal.wav" id="9_xiks1"]
 [ext_resource type="Texture2D" uid="uid://4lmj4puk5fxk" path="res://RawAssets/Objects/Picture Frames/Landscape Picture.png" id="10_4huul"]
 [ext_resource type="Script" path="res://Props/DishPlacement.gd" id="10_7qkmt"]
+[ext_resource type="AudioStream" uid="uid://vu26crwjmuuc" path="res://RawAssets/Cat Sounds/mrawaw.wav" id="10_d4bo6"]
 [ext_resource type="Script" path="res://QuestBox.gd" id="10_u2xph"]
+[ext_resource type="AudioStream" uid="uid://dosl5recmo7mm" path="res://RawAssets/Cat Sounds/mraww_mrow.wav" id="11_15e7o"]
 [ext_resource type="Texture2D" uid="uid://biac82ggsqq85" path="res://RawAssets/Objects/Chairs/Blue Chair_Back.png" id="11_y5wj7"]
+[ext_resource type="AudioStream" uid="uid://txmnuftav61c" path="res://RawAssets/Cat Sounds/mroweow.wav" id="12_r62in"]
+[ext_resource type="AudioStream" uid="uid://c2t51gtyaokib" path="res://RawAssets/Cat Sounds/mrowwrr.wav" id="13_film7"]
 [ext_resource type="PackedScene" uid="uid://cakgdq67oirxw" path="res://Props/GoodCat.tscn" id="14_qur5f"]
 [ext_resource type="Texture2D" uid="uid://dt3n6gvpbqlvn" path="res://RawAssets/Objects/Doors/Big Brown Door_Close Lined.png" id="16_hamjk"]
 [ext_resource type="Texture2D" uid="uid://1ne2ucfbcs4s" path="res://RawAssets/Objects/Laptop + White Boards/Brown White Board_Empty.png" id="17_xveje"]
@@ -1424,6 +1431,23 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_6lvby")
 sources/2 = SubResource("TileSetAtlasSource_gxans")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cf14p"]
+streams_count = 7
+stream_0/stream = ExtResource("7_6yyej")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_elwiy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("9_xiks1")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("10_d4bo6")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("11_15e7o")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("12_r62in")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("13_film7")
+stream_6/weight = 1.0
+
 [sub_resource type="Theme" id="Theme_h3b7e"]
 default_font_size = 8
 
@@ -1449,6 +1473,9 @@ script = ExtResource("2_melcq")
 
 [node name="Cat" parent="HidingSystem" instance=ExtResource("6_1owbx")]
 position = Vector2(40, 208)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HidingSystem"]
+stream = SubResource("AudioStreamRandomizer_cf14p")
 
 [node name="DishPlacement" type="Node2D" parent="."]
 script = ExtResource("10_7qkmt")

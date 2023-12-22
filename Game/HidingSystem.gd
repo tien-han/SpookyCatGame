@@ -2,6 +2,7 @@ extends Node2D
 
 var hiding_spots = []
 var current_hiding_spot
+@onready var sound_player = $AudioStreamPlayer2D
 
 signal print_dialogue
 signal new_hiding_spot(interactable: Interactable)
@@ -31,6 +32,7 @@ func check_hiding_spot(interactable):
     if interactable is Interactable and interactable.is_hiding_spot:
         if interactable == current_hiding_spot:
             choose_hiding_spot()
+            sound_player.play()
             print("Found cat")
             emit_signal("print_dialogue", "(Cat is on the move to the next destination)")
             emit_signal("new_hiding_spot", current_hiding_spot)

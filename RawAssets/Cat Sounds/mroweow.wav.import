@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://txmnuftav61c"
+path="res://.godot/imported/mroweow.wav-b74a5380e553bfcd0a68b5e6ac41b5aa.sample"
+
+[deps]
+
+source_file="res://RawAssets/Cat Sounds/mroweow.wav"
+dest_files=["res://.godot/imported/mroweow.wav-b74a5380e553bfcd0a68b5e6ac41b5aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

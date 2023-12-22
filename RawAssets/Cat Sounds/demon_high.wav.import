@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bae5exbg76mre"
+path="res://.godot/imported/demon_high.wav-14f90e7f6982e07e48f511acdc9594ac.sample"
+
+[deps]
+
+source_file="res://RawAssets/Cat Sounds/demon_high.wav"
+dest_files=["res://.godot/imported/demon_high.wav-14f90e7f6982e07e48f511acdc9594ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
