@@ -11,6 +11,7 @@ height = 10.0
 radius = 15.0
 
 [node name="Player" type="CharacterBody2D"]
+top_level = true
 position = Vector2(66, 56)
 motion_mode = 1
 script = ExtResource("1_qs603")

@@ -22,12 +22,12 @@ func _ready():
 
     #All dish nodes
     var all_dishes = [
-        get_node("../Dish1"),
-        get_node("../Dish2"),
-        get_node("../Dish3"),
-        get_node("../Dish4"),
-        get_node("../Dish5"),
-        get_node("../Dish6"),
+        get_node("Dish1"),
+        get_node("Dish2"),
+        get_node("Dish3"),
+        get_node("Dish4"),
+        get_node("Dish5"),
+        get_node("Dish6"),
     ]
 
     #Go through all our dishes and set their places
