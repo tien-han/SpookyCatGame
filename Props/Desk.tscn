@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtneepob8sjwv"]
+[gd_scene load_steps=4 format=3 uid="uid://cx52ji0dq2yks"]
 
 [ext_resource type="Texture2D" uid="uid://dr03uy82htibi" path="res://RawAssets/Objects/Desks + Small Tables + Cabinets/Wooden Desk_Laptop Open.png" id="1_kjjfq"]
 [ext_resource type="PackedScene" uid="uid://bt364x34o75se" path="res://Props/boundary.tscn" id="2_nk1w2"]

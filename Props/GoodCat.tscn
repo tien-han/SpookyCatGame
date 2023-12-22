@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://egqdn8ugkebe"]
+[gd_scene load_steps=17 format=3 uid="uid://cakgdq67oirxw"]
 
 [ext_resource type="Texture2D" uid="uid://cdmno6b33j173" path="res://RawAssets/Cat-set Sprite pixel art/Cat color 2/Cat Sprite Atlas 2.png" id="1_1mpba"]
 [ext_resource type="Script" path="res://Props/GoodCat.gd" id="1_c7d7x"]
@@ -133,6 +133,7 @@ position = Vector2(0, 1.5)
 [node name="Interactable" parent="." instance=ExtResource("3_vwg76")]
 dialogue = "Meowwwwww"
 interactable_type = 1
+is_hiding_spot = true
 
 [node name="InteractKey" parent="Interactable" index="1"]
 position = Vector2(-4, 4.5)
